@@ -1,0 +1,2 @@
+Browser("Welcome: Mercury Tours").Page("Welcome: Mercury Tours").Check CheckPoint("Welcome: Mercury Tours")
+Browser("Welcome: Mercury Tours").Close

@@ -1,0 +1,22 @@
+totalFrom = Browser("Find a Flight: Mercury").Page("Find a Flight: Mercury").WebList("fromPort").GetROProperty("items count")
+totalTo = Browser("Find a Flight: Mercury").Page("Find a Flight: Mercury").WebList("toPort").GetROProperty("items count")
+
+ctr=1
+
+For i = 0 To totalFrom-1 Step 1
+    Browser("Find a Flight: Mercury").Page("Find a Flight: Mercury").WebList("fromPort").Select i
+    a = Browser("Find a Flight: Mercury").Page("Find a Flight: Mercury").WebList("fromPort").GetROProperty("value")
+	
+	For j = 0 To totalTo-1 Step 1
+		Browser("Find a Flight: Mercury").Page("Find a Flight: Mercury").WebList("toPort").Select j
+        b = Browser("Find a Flight: Mercury").Page("Find a Flight: Mercury").WebList("toPort").GetROProperty("value")
+        
+        If a=b Then
+        	DataTable.SetCurrentRow(ctr)
+        	DataTable.Value("FromCity", "Action1") = a
+        	DataTable.Value("ToCity", "Action1") = b
+        	
+        	ctr= ctr + 1
+        End If
+	Next
+Next

@@ -1,0 +1,8 @@
+
+Browser("Home").Page("Home").Link("SignIn").Click
+Browser("Home").Page("Login").WebButton("Login").Check CheckPoint("Login_3")
+Browser("Home").Page("Login").WebEdit("userName").Set "Lalitha"
+Browser("Home").Page("Login").WebEdit("password").SetSecure "5c9202e3ce404ae3d6743478600829171f0e7ccd156a54d5bf6681f0"
+Browser("Home").Page("Login").WebButton("Login").Click
+Browser("Home").Page("Home").Link("SignOut").Click
+Browser("Home").Close

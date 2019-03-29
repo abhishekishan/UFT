@@ -1,0 +1,33 @@
+'Parameterization using Excel Sheet
+'Add a new sheet to UFT Database
+Datatable.AddSheet "UFT Sheet"
+
+'import data from external Excel into UFT
+Datatable.ImportSheet "C:\Users\training_b6b.00.08\Desktop\Arch.xlsx", "Sheet1", "UFT Sheet"
+
+'get the row count
+RC = Datatable.GetSheet("UFT Sheet").GetRowCount
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfEdit("agentName").Set "john"
+WpfWindow("HPE MyFlight Sample Applicatio").WpfEdit("password").SetSecure "5c91b8c877c28a23fe4f"
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("OK").Click
+
+For i = 1 To RC Step 1
+	'point to particular row
+	datatable.GetSheet("UFT Sheet").SetCurrentRow(i)
+	
+	'fetch the values in data sheet
+	noOfTickets = datatable.Value("Tickets", "UFT Sheet")
+	travelClass = datatable.Value("TravelClass", "UFT Sheet")
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfComboBox("numOfTickets").Select noOfTickets
+WpfWindow("HPE MyFlight Sample Applicatio").WpfComboBox("Class").Select travelClass
+
+Next
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("FIND FLIGHTS").Click
+WpfWindow("HPE MyFlight Sample Applicatio").WpfTable("flightsDataGrid").SelectCell 4,1
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("SELECT FLIGHT").Click
+WpfWindow("HPE MyFlight Sample Applicatio").WpfEdit("passengerName").Set "Kalli Arch"
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("ORDER").Click
+WpfWindow("HPE MyFlight Sample Applicatio").Close

@@ -1,0 +1,15 @@
+SystemUtil.Run "C:\Program Files (x86)\HPE\Unified Functional Testing\samples\Flights Application\FlightsGUI.exe"
+WpfWindow("HPE MyFlight Sample Applicatio").WpfEdit("agentName").Set "john"
+WpfWindow("HPE MyFlight Sample Applicatio").WpfEdit("password").SetSecure "5c8f5e7a090ed1d748fc"
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("OK").Click
+WpfWindow("HPE MyFlight Sample Applicatio").WpfComboBox("fromCity").Select DataTable("DataTablePortland_param_dtGlobalSheet", dtGlobalSheet)
+WpfWindow("HPE MyFlight Sample Applicatio").WpfComboBox("toCity").Select DataTable("DataTableFrankfurt_param_dtGlobalSheet", dtGlobalSheet)
+WpfWindow("HPE MyFlight Sample Applicatio").WpfImage("WpfImage_2").Click 11,11
+WpfWindow("HPE MyFlight Sample Applicatio").WpfCalendar("Su").SetDate "30-Mar-2019"
+WpfWindow("HPE MyFlight Sample Applicatio").WpfComboBox("numOfTickets").Select DataTable("DataTable5_param_dtGlobalSheet",dtGlobalSheet)
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("FIND FLIGHTS").Click
+WpfWindow("HPE MyFlight Sample Applicatio").WpfTable("flightsDataGrid").SelectCell 0,0
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("SELECT FLIGHT").Click
+WpfWindow("HPE MyFlight Sample Applicatio").WpfEdit("passengerName").Set "Architha"
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("ORDER").Click
+WpfWindow("HPE MyFlight Sample Applicatio").close

@@ -1,0 +1,11 @@
+Browser("name:=Home").page("title:=Home").link("innertext:=SignUp").Click
+Browser("name:=Sign Up").page("title:=Sign Up").WebEdit("name:=userName").Set "HuchhiArch"
+
+'create an empty object
+Set obj = Description.Create
+
+'define multiple properties
+obj("name").value = "firstName"
+obj("max length").value="30"
+obj("kind").value = "singleline"
+Browser("name:=Sign Up").page("title:=Sign Up").WebEdit(obj).Set "Architha"

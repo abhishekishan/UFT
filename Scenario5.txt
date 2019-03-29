@@ -1,0 +1,70 @@
+WpfWindow("HPE MyFlight Sample Applicatio").WpfEdit("agentName").Set "john"
+
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfEdit("password").SetSecure "5c9a20bfdd9601a614b6"
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("OK").Click
+
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfComboBox("fromCity").Select DataTable("from", dtLocalSheet)
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfComboBox("toCity").Select DataTable("to", dtLocalSheet)
+
+
+
+
+a = DataTable.Value("from", dtLocalSheet)
+
+b = DataTable.Value("to", dtLocalSheet)
+
+
+
+
+If a=b Then
+
+Reporter.ReportEvent micWarning,"same city", "please select diff city"
+
+
+
+
+else
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfImage("WpfImage_2").Click 4,14
+
+'WpfWindow("HPE MyFlight Sample Applicatio").WpfCalendar("Su").SetDate "28-Mar-2019"
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfComboBox("Class").Select "Business"
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfComboBox("numOfTickets").Select "5"
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("FIND FLIGHTS").Click
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfTable("flightsDataGrid").SelectCell 1,1
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("SELECT FLIGHT").Click
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfEdit("passengerName").Set "mj"
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("ORDER").Click
+
+
+
+
+wait(5)
+
+
+
+
+
+
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfObject("Order 147 completed").Output CheckPoint("Order 148 completed")
+
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("NEW SEARCH").Click
+
+End If
+
+
+
+
+ WpfWindow("HPE MyFlight Sample Applicatio").Close
