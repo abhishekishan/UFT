@@ -1,0 +1,8 @@
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("OK").Output CheckPoint("OK")
+msgbox Environment.Value("OK_name_out")
+print Environment.Value("OK_name_out")
+WpfWindow("HPE MyFlight Sample Applicatio").WpfEdit("agentName").Set "john"
+WpfWindow("HPE MyFlight Sample Applicatio").WpfEdit("password").SetSecure "5c90b53c47a0d9239d8b"
+WpfWindow("HPE MyFlight Sample Applicatio").WpfButton("OK").Click
+
+WpfWindow("HPE MyFlight Sample Applicatio").Close

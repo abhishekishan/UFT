@@ -1,0 +1,2 @@
+Browser("name:=Home").page("title:=Home").link("innertext:=SignUp").Click
+Browser("name:=Sign Up").page("title:=Sign Up").WebEdit("name:=userName").Set "Huchhi Arch"

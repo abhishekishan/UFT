@@ -1,0 +1,12 @@
+wait(20)
+Browser("Home").Page("Home").Link("SignIn").Click
+
+if Browser("Home").Page("Login").WebEdit("userName").Exist(20) then
+Browser("Home").Page("Login").WebEdit("userName").Set "Lalitha"
+
+Browser("Home").Page("Login").WebEdit("password").SetSecure "5c9065a9a604bbe631c3b4e3869d8f982b799b0569e03a5eab12d43c"
+End If
+Browser("Home").Page("Login").WebButton("Login").Click
+
+Browser("Home").Page("Home").Sync
+Browser("Home").Page("Home").Link("SignOut").Click
